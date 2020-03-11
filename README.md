@@ -5,7 +5,7 @@ A list of useful SQL Management snippets
 
 ## Install via SQL Management studio
 
-- Download `SqlSnippetCollection.snippet` to yuor computer.
+- Download `SqlSnippetCollection.snippet` to your computer.
 - Open SQL Management Studio
 - Press `Ctrl + K, Ctrl + B`
 - Click `Import`
