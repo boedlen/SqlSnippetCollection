@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <!-- 
+    Read uncomitted Transaction   
+  -->
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Read uncomitted Transaction</Title>
+      <Shortcut>rut</Shortcut>
+      <Description>Read uncomitted Transaction</Description>
+      <Author>Martin Sandholm Nielsen</Author>
+      <SnippetTypes>
+        <SnippetType>SurroundsWith</SnippetType>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="SQL">
+        <![CDATA[SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+BEGIN TRANSACTION
+
+	$selected$$end$  
+
+ROLLBACK 
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <!-- 
+    Set Identity Insert  
+  -->
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Set Identity Insert</Title>
+      <Shortcut>sii</Shortcut>
+      <Description>Set Identity Insert</Description>
+      <Author>Martin Sandholm Nielsen</Author>
+      <SnippetTypes>
+        <SnippetType>SurroundsWith</SnippetType>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+		<Literal>
+          <ID>SchemaName</ID>
+          <ToolTip>Name of Schema</ToolTip>
+          <Default>dbo</Default>
+        </Literal>
+		<Literal>
+          <ID>TableName</ID>
+          <ToolTip>Name of table</ToolTip>
+          <Default>TableName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL">
+<![CDATA[SET IDENTITY_INSERT [$SchemaName$].[$TableName$] ON 
+
+$selected$$end$  
+
+SET IDENTITY_INSERT [$SchemaName$].[$TableName$] OFF
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>  
